@@ -1,0 +1,72 @@
+# Complete example used by the README, CI smoke test, and the repository's own card.
+login: octocat
+uptimeStart: 2011-01-25
+
+art:
+  seed: daily
+  width: 420
+  height: 240
+  scale: 2.4
+  warp: 2.4
+  bands: 3.4
+  contrast: 2.6
+  octaves: 4
+
+ascii:
+  flags: ['--dimensions', '42,24']
+
+card:
+  align: left
+  lowercase: false
+  lines:
+    - { type: header, text: 'Mona Lisa Octocat' }
+    - { type: kv, key: Role, value: 'Mascot @ GitHub' }
+    - { type: kv, key: Uptime, value: '{uptime} on GitHub' }
+    - { type: blank }
+    - { type: kv, key: Stack, value: 'Ruby, Go, TypeScript' }
+    - { type: kv, key: Interests, value: 'Open source, octopuses, cats' }
+    - { type: blank }
+    - { type: section, title: Contact }
+    - { type: kv, key: Site, value: github.blog }
+    - { type: kv, key: Email, value: octocat@github.com }
+    - { type: blank }
+    - { type: section, title: GitHub Stats }
+    - { type: kv, key: Repos, value: '{repos} (contributed to {contributedRepos})' }
+    - { type: kv, key: Stars, value: '{stars}' }
+    - { type: kv, key: Followers, value: '{followers}' }
+    - { type: kv, key: Contributions, value: '{contributions} (all time)' }
+    - { type: kv, key: Lines of Code, value: '{loc} ({locAdded}, {locDeleted})' }
+    - { type: kv, key: Top Languages, value: '{topLanguages}' }
+
+layout:
+  charWidthPx: 9.9
+  columnGapPx: 24
+  cornerRadiusPx: 15
+  fontFamily: "'JetBrains Mono', 'Cascadia Code', Consolas, monospace"
+  fontSizePx: 16
+  paddingPx: 16
+  rowHeightPx: 20
+  ruleWidth: 56
+  valueColumn: 20
+
+output:
+  dark: dark_mode.svg
+  light: light_mode.svg
+
+themes:
+  dark:
+    background: '#161b22'
+    text: '#c9d1d9'
+    key: '#ffa657'
+    value: '#a5d6ff'
+    dots: '#616e7f'
+    added: '#3fb950'
+    deleted: '#f85149'
+  light:
+    background: '#f6f8fa'
+    text: '#24292f'
+    key: '#953800'
+    value: '#0a3069'
+    dots: '#9ba3ae'
+    added: '#1a7f37'
+    deleted: '#cf222e'

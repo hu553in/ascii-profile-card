@@ -1,0 +1,82 @@
+name: ASCII profile card
+description: >-
+  GitHub Action that generates Neofetch-style SVG profile cards with daily ASCII art and live GitHub
+  stats.
+author: Ruslan Khasanshin
+branding:
+  icon: terminal
+  color: purple
+
+inputs:
+  config:
+    description: The card described as inline YAML (multiline string).
+    required: true
+  token:
+    description: GitHub token used to fetch stats and push the output branch.
+    required: false
+    default: ${{ github.token }}
+  branch:
+    description: Branch the rendered SVGs are published to.
+    required: false
+    default: output
+
+runs:
+  using: composite
+  steps:
+    - uses: oven-sh/setup-bun@v2
+      with:
+        bun-version-file: ${{ github.action_path }}/package.json
+
+    - name: Install ascii-image-converter
+      shell: bash
+      env:
+        ASCII_IMAGE_CONVERTER_SHA256: 5652d8b7ba9efa71837c473d32d223a8a77264bc6e003ae311719a8644df3c56
+        ASCII_IMAGE_CONVERTER_VERSION: 1.13.1
+      run: |
+        archive="$RUNNER_TEMP/ascii-image-converter.tar.gz"
+        directory="$RUNNER_TEMP/ascii-image-converter_Linux_amd64_64bit"
+        curl --fail --location --retry 3 --retry-all-errors --silent --show-error \
+          "https://github.com/TheZoraiz/ascii-image-converter/releases/download/v${ASCII_IMAGE_CONVERTER_VERSION}/ascii-image-converter_Linux_amd64_64bit.tar.gz" \
+          --output "$archive"
+        echo "$ASCII_IMAGE_CONVERTER_SHA256  $archive" | sha256sum --check
+        tar --extract --gzip --file "$archive" --directory "$RUNNER_TEMP"
+        echo "$directory" >> "$GITHUB_PATH"
+
+    - name: Install dependencies
+      shell: bash
+      run: bun install --frozen-lockfile --production --cwd '${{ github.action_path }}'
+
+    - name: Render the card
+      shell: bash
+      env:
+        GITHUB_TOKEN: ${{ inputs.token }}
+        CONFIG: ${{ inputs.config }}
+        OUTPUT_DIR: ${{ runner.temp }}/ascii-profile-card
+      run: bun '${{ github.action_path }}/src/main.ts'
+
+    - name: Publish to the output branch
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ inputs.token }}
+        publish_branch: ${{ inputs.branch }}
+        publish_dir: ${{ runner.temp }}/ascii-profile-card
+        force_orphan: true
+        commit_message: 'chore: update ascii-profile-card'
+
+    - name: Job summary
+      shell: bash
+      env:
+        BASE: https://raw.githubusercontent.com/${{ github.repository }}/${{ inputs.branch }}
+        OUTPUT_DIR: ${{ runner.temp }}/ascii-profile-card
+      run: |
+        {
+          echo '### ascii-profile-card updated'
+          echo ''
+          for file in "$OUTPUT_DIR"/*.svg; do
+            name="$(basename "$file")"
+            echo "![$name]($BASE/$name)"
+            echo ''
+            echo "\`$BASE/$name\`"
+            echo ''
+          done
+        } >> "$GITHUB_STEP_SUMMARY"

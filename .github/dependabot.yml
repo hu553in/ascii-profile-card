@@ -1,0 +1,31 @@
+version: 2
+
+updates:
+  - package-ecosystem: github-actions
+    directory: '/'
+    schedule:
+      interval: weekly
+    assignees:
+      - hu553in
+    groups:
+      patch-and-minor:
+        update-types:
+          - patch
+          - minor
+      major:
+        update-types:
+          - major
+  - package-ecosystem: bun
+    directory: '/'
+    schedule:
+      interval: weekly
+    assignees:
+      - hu553in
+    groups:
+      patch-and-minor:
+        update-types:
+          - patch
+          - minor
+      major:
+        update-types:
+          - major

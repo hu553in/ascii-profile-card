@@ -1,0 +1,33 @@
+name: Example card
+
+# Renders the public example to the output branch used by the README.
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  example:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - id: example
+        run: |
+          {
+            echo 'config<<CONFIG_EOF'
+            cat example-config.yml
+            echo 'CONFIG_EOF'
+          } >> "$GITHUB_OUTPUT"
+
+      - uses: ./
+        with:
+          config: ${{ steps.example.outputs.config }}

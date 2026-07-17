@@ -1,0 +1,46 @@
+{
+  "name": "ascii-profile-card",
+  "version": "0.1.0",
+  "private": true,
+  "description": "GitHub Action that generates Neofetch-style SVG profile cards with daily ASCII art and live GitHub stats.",
+  "license": "MIT",
+  "author": "Ruslan Khasanshin",
+  "repository": "https://github.com/hu553in/ascii-profile-card",
+  "type": "module",
+  "scripts": {
+    "generate": "bun src/main.ts",
+    "lint": "ultracite check",
+    "lint:fix": "ultracite fix",
+    "check:action": "bunx --package @action-validator/cli action-validator action.yml",
+    "check:workflows": "bunx github-actionlint",
+    "check:types": "tsc --pretty",
+    "check:unused": "knip",
+    "check:vulns": "bun audit --prod --audit-level=high",
+    "check:render": "rm -rf out && CONFIG=\"$(cat example-config.yml)\" bun run generate && xmllint --noout out/dark_mode.svg out/light_mode.svg && grep -q 'Mona Lisa Octocat' out/dark_mode.svg && grep -q 'on GitHub' out/light_mode.svg",
+    "check": "bun lint && bun check:action && bun check:workflows && bun check:types && bun check:unused && bun check:vulns && bun check:render",
+    "check:fix": "bun lint:fix && bun check",
+    "release:patch": "release-it patch",
+    "release:minor": "release-it minor",
+    "release:major": "release-it major",
+    "prepare": "if [ -n \"${CI:-}\" ] || [ \"${LEFTHOOK:-}\" = \"0\" ]; then exit 0; fi; lefthook install"
+  },
+  "dependencies": {
+    "@octokit/graphql": "^9.0.3",
+    "sharp": "^0.35.3",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.3.14",
+    "knip": "^6.27.0",
+    "lefthook": "^2.1.10",
+    "oxfmt": "^0.59.0",
+    "oxlint": "^1.74.0",
+    "release-it": "^20.2.1",
+    "typescript": "^7.0.2",
+    "ultracite": "^7.9.4"
+  },
+  "packageManager": "bun@1.3.14",
+  "trustedDependencies": [
+    "sharp"
+  ]
+}

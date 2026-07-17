@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*'
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version-file: package.json
+
+      - env:
+          ASCII_IMAGE_CONVERTER_SHA256: 5652d8b7ba9efa71837c473d32d223a8a77264bc6e003ae311719a8644df3c56
+          ASCII_IMAGE_CONVERTER_VERSION: 1.13.1
+        run: |
+          archive="$RUNNER_TEMP/ascii-image-converter.tar.gz"
+          directory="$RUNNER_TEMP/ascii-image-converter_Linux_amd64_64bit"
+          curl --fail --location --retry 3 --retry-all-errors --silent --show-error \
+            "https://github.com/TheZoraiz/ascii-image-converter/releases/download/v${ASCII_IMAGE_CONVERTER_VERSION}/ascii-image-converter_Linux_amd64_64bit.tar.gz" \
+            --output "$archive"
+          echo "$ASCII_IMAGE_CONVERTER_SHA256  $archive" | sha256sum --check
+          tar --extract --gzip --file "$archive" --directory "$RUNNER_TEMP"
+          echo "$directory" >> "$GITHUB_PATH"
+
+      - run: sudo apt-get update && sudo apt-get install --yes --no-install-recommends libxml2-utils
+
+      - run: bun ci
+
+      - run: bun check
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+
+  release:
+    if: startsWith(github.ref, 'refs/tags/')
+    needs: check
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: softprops/action-gh-release@v3
+        with:
+          draft: true
+          generate_release_notes: true
