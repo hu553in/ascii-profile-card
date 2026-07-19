@@ -33,7 +33,7 @@ The example is generated from [`example-config.yml`](example-config.yml) by this
      card:
        runs-on: ubuntu-latest
        steps:
-         - uses: hu553in/ascii-profile-card@v1.0.0
+         - uses: hu553in/ascii-profile-card@v1
            with:
              config: |
                card:
@@ -44,8 +44,9 @@ The example is generated from [`example-config.yml`](example-config.yml) by this
                    - { type: kv, key: Stars, value: '{stars}' }
    ```
 
-   The scheduled run refreshes live stats and changes the date-seeded art once a day. Use an exact
-   version tag so the action remains immutable.
+   The scheduled run refreshes live stats and changes the date-seeded art once a day. The `v1` tag
+   receives backward-compatible updates; use an exact tag such as `v1.1.0` or a commit SHA for an
+   immutable pin.
 
 2. Embed the generated files in your profile `README.md`, replacing `YOU` with your GitHub login:
 
@@ -167,7 +168,8 @@ bun release:major
 Release It! runs the full check, updates `package.json`, creates the conventional release commit and
 annotated `vX.Y.Z` tag, and pushes both. CI creates a draft GitHub release with generated notes.
 Enable **Publish this Action to the GitHub Marketplace**, choose the Marketplace categories, and
-publish the draft; publishing makes the release immutable.
+publish the draft. Publishing makes the exact release immutable and moves its floating major tag,
+such as `v1`, to the newly published stable version.
 
 ## License
 

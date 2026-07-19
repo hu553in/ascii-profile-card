@@ -1,0 +1,25 @@
+name: Update major tag
+
+on:
+  release:
+    types:
+      - published
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Exact stable release tag (for example, v1.2.3)
+        required: true
+        type: string
+
+jobs:
+  update:
+    if: github.event_name == 'workflow_dispatch' || !github.event.release.prerelease
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: cssnr/update-version-tags-action@v2
+        with:
+          force: true
+          minor: false
+          tag: ${{ inputs.tag || github.event.release.tag_name }}
