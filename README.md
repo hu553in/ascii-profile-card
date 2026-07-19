@@ -68,6 +68,8 @@ The example is generated from [`example-config.yml`](example-config.yml) by this
    ```
 
 The first successful run creates the orphan `output` branch. Later runs replace its generated files.
+See [my GitHub profile README](https://github.com/hu553in/hu553in/blob/main/README.md) for a
+complete live example.
 
 ## Inputs
 
