@@ -141,6 +141,13 @@ self-contained SVGs, and publishes them with
 
 The action currently supports Linux x64 runners such as `ubuntu-latest`.
 
+## Inspiration
+
+This project was inspired by
+[Andrew Grant's ingenious profile repository](https://github.com/Andrew6rant/Andrew6rant), whose
+automated GitHub stats and lifetime lines-of-code card sparked the idea for a reusable, configurable
+action.
+
 ## Development
 
 Requirements:
