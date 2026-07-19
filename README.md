@@ -56,6 +56,10 @@ The example is generated from [`example-config.yml`](example-config.yml) by this
        media="(prefers-color-scheme: dark)"
        srcset="https://raw.githubusercontent.com/YOU/YOU/output/dark_mode.svg"
      />
+     <source
+       media="(prefers-color-scheme: light)"
+       srcset="https://raw.githubusercontent.com/YOU/YOU/output/light_mode.svg"
+     />
      <img
        alt="ASCII profile card"
        src="https://raw.githubusercontent.com/YOU/YOU/output/light_mode.svg"
