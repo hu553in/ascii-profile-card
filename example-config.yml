@@ -5,15 +5,13 @@ uptimeStart: 2011-01-25
 art:
   seed: daily
   width: 420
-  height: 240
+  columns: 42
+  rows: 24 # minimum: the art grows to match a taller info column
   scale: 2.4
   warp: 2.4
   bands: 3.4
   contrast: 2.6
   octaves: 4
-
-ascii:
-  flags: ['--dimensions', '42,24']
 
 card:
   align: left

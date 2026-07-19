@@ -59,6 +59,7 @@ const createNoise = (random: () => number) => {
 
 export const renderArt = async (
   art: Config["art"],
+  rows: number,
   file: string
 ): Promise<void> => {
   const seed =
@@ -80,13 +81,19 @@ export const renderArt = async (
     return value;
   };
 
-  const { height, width } = art;
+  const { width } = art;
+  const cell = width / art.columns;
+  const height = Math.round(cell * rows);
+  // Normalizing ny by the MINIMUM-rows height keeps the default pattern
+  // unchanged and lets taller cards simply reveal more of the field below
+  // instead of stretching it.
+  const baseHeight = Math.round(cell * art.rows);
   const pixels = Buffer.alloc(width * height);
 
   for (let y = 0; y < height; y += 1) {
     for (let x = 0; x < width; x += 1) {
       const nx = (x / width) * art.scale;
-      const ny = (y / height) * art.scale;
+      const ny = (y / baseHeight) * art.scale;
       const warped = fbm(
         nx + art.warp * fbm(nx + 5.2, ny + 1.3),
         ny + art.warp * fbm(nx + 9.7, ny + 4.6)

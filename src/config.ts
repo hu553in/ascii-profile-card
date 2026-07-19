@@ -38,9 +38,13 @@ const configSchema = z.object({
   art: z
     .object({
       bands: z.number().min(0.5).max(16).default(3.4),
+      // Character columns of the rendered art.
+      columns: z.int().min(8).max(256).default(42),
       contrast: z.number().min(0.2).max(8).default(2.6),
-      height: z.int().min(64).max(2048).default(240),
       octaves: z.int().min(1).max(8).default(4),
+      // MINIMUM rows: the art grows to match the info column when the card
+      // has more lines.
+      rows: z.int().min(8).max(256).default(24),
       scale: z.number().min(0.5).max(16).default(2.4),
       seed: z.string().min(1).max(64).default("daily"),
       warp: z.number().min(0).max(8).default(2.4),
@@ -50,11 +54,15 @@ const configSchema = z.object({
 
   ascii: z
     .object({
-      // Passed to ascii-image-converter as-is (argv array, no shell).
+      // Extra ascii-image-converter flags, passed as-is (argv array, no
+      // shell); --dimensions is derived from art.columns/rows.
       flags: z
         .array(z.string().min(1).max(64))
         .max(16)
-        .default(["--dimensions", "42,24"]),
+        .default([])
+        .refine((flags) => !flags.includes("--dimensions"), {
+          message: "use art.columns / art.rows instead of --dimensions",
+        }),
     })
     .prefault({}),
 

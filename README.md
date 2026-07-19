@@ -114,8 +114,10 @@ for which GitHub does not provide statistics.
 
 ### Appearance and output
 
-- `art` controls the seed, source image dimensions, noise, warp, contour bands, and contrast.
-- `ascii.flags` is passed directly to `ascii-image-converter` as an argument array.
+- `art` controls the seed, `columns` / `rows` (rows is a minimum — the art grows to match a taller
+  info column), noise, warp, contour bands, and contrast.
+- `ascii.flags` — extra `ascii-image-converter` flags as an argument array (`--dimensions` is
+  derived from `art.columns` / `art.rows`).
 - `layout` controls font, spacing, rule width, value column, padding, and corner radius.
 - `themes.dark` and `themes.light` define SVG colors.
 - `output.dark` and `output.light` set the generated file names.

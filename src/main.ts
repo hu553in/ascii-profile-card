@@ -31,8 +31,11 @@ for (const line of config.card.lines) {
   }
 }
 
+// The art grows to match a taller info column (never shrinks below art.rows).
+const artRows = Math.max(config.art.rows, config.card.lines.length);
+
 const [art, stats] = await Promise.all([
-  generateAsciiArt(config),
+  generateAsciiArt(config, artRows),
   fetchStats(login, process.env["GITHUB_TOKEN"], usedPlaceholders),
 ]);
 
