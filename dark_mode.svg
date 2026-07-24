@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1027px" height="512px" font-family="'JetBrains Mono', 'Cascadia Code', Consolas, monospace" font-size="16px">
+<style>
+.key {fill: #ffa657;}
+.value {fill: #a5d6ff;}
+.dots {fill: #616e7f;}
+.added {fill: #3fb950;}
+.deleted {fill: #f85149;}
+text, tspan {white-space: pre;}
+</style>
+<rect width="1027px" height="512px" fill="#161b22" rx="15"/>
+<text fill="#c9d1d9">
+<tspan x="16" y="30">@*@@@*       +@:   .:  -+*@-  +%@*=:.-*@@@</tspan>
+<tspan x="16" y="50">@%@@@@-   :-#@+        -#%@%+. .-.     :-=</tspan>
+<tspan x="16" y="70">@@@@@@=  -%@@=        ...=%@@=            </tspan>
+<tspan x="16" y="90">@@@%*-   =@@%+:      .:::+%++=..         .</tspan>
+<tspan x="16" y="110">@@#:   .  :=*%%+ .::.......   :::.        </tspan>
+<tspan x="16" y="130">--.  .:.   .: +#: ..  ..           .:+*:  </tspan>
+<tspan x="16" y="150">    :-:   .@@-.==:...::..  .+#**#@%=:=#: .</tspan>
+<tspan x="16" y="170">.   :=-    =%+   ..---=+##+####=:*.  :=   </tspan>
+<tspan x="16" y="190">      ..:.    :==. .. .:+%+=. ..+%--=*#.  </tspan>
+<tspan x="16" y="210">.   ==-=====-=+++==+*%@%%@%%%%%@%+==#%@%-.</tspan>
+<tspan x="16" y="230">#%#:+*.    ..   ..::::---::::..      ..=*.</tspan>
+<tspan x="16" y="250">%%@@%@+.  .   -**==++++*+-:.  .+##*=    :.</tspan>
+<tspan x="16" y="270">#@@@@@*   .  -:.  ...::+%@@%##%@@@@=     .</tspan>
+<tspan x="16" y="290">@@@@@@=      .          :#%@@@%@@#=  .***+</tspan>
+<tspan x="16" y="310">@%%@%#.           :      .+@#===-  .=*-.  </tspan>
+<tspan x="16" y="330">*#@+.    ...   .  *-   *+  .:-  -=-:.   :=</tspan>
+<tspan x="16" y="350">%%-                   -@*     -+:    .++==</tspan>
+<tspan x="16" y="370">@*:.     ..          .#@%.   -*      .#.  </tspan>
+<tspan x="16" y="390">%#       .:.          =@@*   ++   .: .-#+:</tspan>
+<tspan x="16" y="410">*#=:.    .       ..   =@###.  **+*%%**#%@%</tspan>
+<tspan x="16" y="430">#-%@@:                :%@@#=:  :%##%#+@@@@</tspan>
+<tspan x="16" y="450">%%%*=.                :@%@%%#+=*%#+*%**@@@</tspan>
+<tspan x="16" y="470">@@#:          .:.    :==*+--   :#@+=#@**@@</tspan>
+<tspan x="16" y="490">@@%+-.              --         -%@*:#%%#@@</tspan>
+</text>
+<text fill="#c9d1d9">
+<tspan x="456" y="30">Mona Lisa Octocat <tspan class="dots">——————————————————————————————————————</tspan></tspan>
+<tspan x="456" y="50"><tspan class="dots">. </tspan><tspan class="key">Role</tspan>: <tspan class="dots">........... </tspan><tspan class="value">Mascot @ GitHub</tspan></tspan>
+<tspan x="456" y="70"><tspan class="dots">. </tspan><tspan class="key">Uptime</tspan>: <tspan class="dots">......... </tspan><tspan class="value">15 years, 5 months on GitHub</tspan></tspan>
+<tspan x="456" y="110"><tspan class="dots">. </tspan><tspan class="key">Stack</tspan>: <tspan class="dots">.......... </tspan><tspan class="value">Ruby, Go, TypeScript</tspan></tspan>
+<tspan x="456" y="130"><tspan class="dots">. </tspan><tspan class="key">Interests</tspan>: <tspan class="dots">...... </tspan><tspan class="value">Open source, octopuses, cats</tspan></tspan>
+<tspan x="456" y="170">- Contact <tspan class="dots">——————————————————————————————————————————————</tspan></tspan>
+<tspan x="456" y="190"><tspan class="dots">. </tspan><tspan class="key">Site</tspan>: <tspan class="dots">........... </tspan><tspan class="value">github.blog</tspan></tspan>
+<tspan x="456" y="210"><tspan class="dots">. </tspan><tspan class="key">Email</tspan>: <tspan class="dots">.......... </tspan><tspan class="value">octocat@github.com</tspan></tspan>
+<tspan x="456" y="250">- GitHub Stats <tspan class="dots">—————————————————————————————————————————</tspan></tspan>
+<tspan x="456" y="270"><tspan class="dots">. </tspan><tspan class="key">Repos</tspan>: <tspan class="dots">.......... </tspan><tspan class="value">6 (contributed to 0)</tspan></tspan>
+<tspan x="456" y="290"><tspan class="dots">. </tspan><tspan class="key">Stars</tspan>: <tspan class="dots">.......... </tspan><tspan class="value">20,633</tspan></tspan>
+<tspan x="456" y="310"><tspan class="dots">. </tspan><tspan class="key">Followers</tspan>: <tspan class="dots">...... </tspan><tspan class="value">23,392</tspan></tspan>
+<tspan x="456" y="330"><tspan class="dots">. </tspan><tspan class="key">Contributions</tspan>: <tspan class="dots">.. </tspan><tspan class="value">38 (all time)</tspan></tspan>
+<tspan x="456" y="350"><tspan class="dots">. </tspan><tspan class="key">Lines of Code</tspan>: <tspan class="dots">.. </tspan><tspan class="value">1,004 (<tspan class="added">1,064++</tspan>, <tspan class="deleted">60--</tspan>)</tspan></tspan>
+<tspan x="456" y="370"><tspan class="dots">. </tspan><tspan class="key">Top Languages</tspan>: <tspan class="dots">.. </tspan><tspan class="value">CSS, HTML, JavaScript</tspan></tspan>
+</text>
+</svg>
