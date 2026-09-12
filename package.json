@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@octokit/graphql": "^9.0.4",
-    "sharp": "^0.35.3",
+    "sharp": "^0.35.4",
     "zod": "^4.4.3"
   },
   "devDependencies": {
@@ -40,6 +40,9 @@
     "release-it": "^21.0.2",
     "typescript": "^7.0.2",
     "ultracite": "^7.10.2"
+  },
+  "overrides": {
+    "sharp": "$sharp"
   },
   "packageManager": "bun@1.4.0",
   "trustedDependencies": [
