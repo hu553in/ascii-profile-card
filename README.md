@@ -25,12 +25,15 @@ The example is generated from [`example-config.yml`](example-config.yml) by this
        - cron: '0 4 * * *'
      workflow_dispatch:
 
-   permissions:
-     contents: write
+   concurrency:
+     group: ${{ github.workflow }}
+     cancel-in-progress: true
 
    jobs:
      card:
        runs-on: ubuntu-latest
+       permissions:
+         contents: write
        steps:
          - uses: hu553in/ascii-profile-card@v1
            with:

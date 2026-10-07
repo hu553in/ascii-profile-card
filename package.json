@@ -28,24 +28,24 @@
     "prepare": "if [ -n \"${CI:-}\" ] || [ \"${LEFTHOOK:-}\" = \"0\" ]; then exit 0; fi; lefthook install"
   },
   "dependencies": {
-    "@octokit/graphql": "^9.0.4",
-    "sharp": "^0.35.4",
-    "zod": "^4.4.3"
+    "@octokit/graphql": "^9.0.5",
+    "sharp": "^0.35.5",
+    "zod": "^4.6.5"
   },
   "devDependencies": {
-    "@types/bun": "^1.4.0",
-    "knip": "^6.32.1",
-    "lefthook": "^2.1.10",
-    "oxfmt": "^0.63.0",
-    "oxlint": "^1.78.0",
-    "release-it": "^21.0.2",
+    "@types/bun": "^1.4.2",
+    "knip": "^6.40.0",
+    "lefthook": "^2.1.17",
+    "oxfmt": "^0.72.0",
+    "oxlint": "^1.87.0",
+    "release-it": "^21.1.0",
     "typescript": "^7.0.2",
-    "ultracite": "^7.10.2"
+    "ultracite": "^7.12.4"
   },
   "overrides": {
     "sharp": "$sharp"
   },
-  "packageManager": "bun@1.4.0",
+  "packageManager": "bun@1.4.2",
   "trustedDependencies": [
     "sharp"
   ]
