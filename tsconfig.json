@@ -2,7 +2,6 @@
   "compilerOptions": {
     "target": "ESNext",
     "lib": ["ESNext"],
-    "noEmit": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -33,6 +32,7 @@
     "incremental": false,
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "noEmit": true,
     "verbatimModuleSyntax": true,
     "allowJs": false
   },

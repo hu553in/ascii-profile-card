@@ -183,7 +183,7 @@ Requirements:
 
 ```bash
 brew install TheZoraiz/ascii-image-converter/ascii-image-converter
-bun i
+bun ci
 CONFIG="$(cat example-config.yml)" GITHUB_TOKEN="$(gh auth token)" bun generate
 bun test
 bun check
@@ -203,10 +203,14 @@ bun release:major
 ```
 
 Release It! runs the full check, updates `package.json`, creates the conventional release commit and
-annotated `vX.Y.Z` tag, and pushes both. CI creates a draft GitHub release with generated notes.
-Enable **Publish this Action to the GitHub Marketplace**, choose the Marketplace categories, and
-publish the draft. Publishing makes the exact release immutable and moves its floating major tag,
-such as `v1`, to the newly published stable version.
+annotated `vX.Y.Z` tag, and pushes both. Run from a clean `main` checkout tracking `origin/main`,
+with Node.js satisfying
+[Release It!'s requirements](https://github.com/release-it/release-it/blob/main/package.json).
+
+CI creates a draft GitHub release with generated notes. Enable **Publish this Action to the GitHub
+Marketplace**, choose the Marketplace categories, and publish the draft. Publishing makes the exact
+release immutable and moves its floating major tag, such as `v1`, to the newly published stable
+version.
 
 ## License
 
