@@ -40,7 +40,7 @@
     "oxlint": "^1.87.0",
     "release-it": "^21.1.0",
     "typescript": "^7.0.2",
-    "ultracite": "^7.12.4"
+    "ultracite": "^8.0.0"
   },
   "overrides": {
     "sharp": "$sharp"
