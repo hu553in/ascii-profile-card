@@ -34,7 +34,7 @@ jobs:
           archive="$RUNNER_TEMP/ascii-image-converter.tar.gz"
           directory="$RUNNER_TEMP/ascii-image-converter_Linux_amd64_64bit"
           curl --fail --location --retry 3 --retry-all-errors --silent --show-error \
-            "https://github.com/TheZoraiz/ascii-image-converter/releases/download/${ASCII_IMAGE_CONVERTER_VERSION}/ascii-image-converter_Linux_amd64_64bit.tar.gz" \
+            "https://github.com/TheZoraiz/ascii-image-converter/releases/download/$ASCII_IMAGE_CONVERTER_VERSION/ascii-image-converter_Linux_amd64_64bit.tar.gz" \
             --output "$archive"
           echo "$ASCII_IMAGE_CONVERTER_SHA256  $archive" | sha256sum --check
           tar --extract --gzip --file "$archive" --directory "$RUNNER_TEMP"
@@ -50,7 +50,7 @@ jobs:
 
   release:
     needs: check
-    if: startsWith(github.ref, 'refs/tags/')
+    if: github.ref_type == 'tag'
     runs-on: ubuntu-latest
     permissions:
       contents: write
