@@ -46,7 +46,7 @@ jobs:
 
       - env:
           GITHUB_TOKEN: ${{ github.token }}
-        run: bun check
+        run: bun check:all
 
   release:
     needs: check

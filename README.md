@@ -186,13 +186,13 @@ brew install TheZoraiz/ascii-image-converter/ascii-image-converter
 bun ci
 CONFIG="$(cat example-config.yml)" GITHUB_TOKEN="$(gh auth token)" bun generate
 bun test
-bun check
+bun check:all
 bun check:fix
 ```
 
-`bun check` runs formatting, linting, action, hook, workflow, and Renovate configuration validation,
-TypeScript, unused dependency checks, tests, a production dependency audit, and a complete example
-render with XML and content checks.
+`bun check:all` runs formatting, linting, action, hook, workflow, and Renovate configuration
+validation, TypeScript, unused dependency checks, tests, a production dependency audit, and a
+complete example render with XML and content checks.
 
 ## Releases
 
