@@ -44,7 +44,7 @@
   "overrides": {
     "sharp": "$sharp"
   },
-  "packageManager": "bun@1.4.4",
+  "packageManager": "bun@1.4.5",
   "trustedDependencies": [
     "sharp"
   ]
