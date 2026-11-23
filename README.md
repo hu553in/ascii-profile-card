@@ -190,9 +190,9 @@ bun check:all
 bun check:fix
 ```
 
-`bun check:all` runs formatting, linting, action, hook, workflow, and Renovate configuration
-validation, TypeScript, unused dependency checks, tests, a production dependency audit, and a
-complete example render with XML and content checks.
+`bun check:all` runs formatting, linting, action, hook, workflow, TypeScript, and unused dependency
+checks, tests, a production dependency audit, and a complete example render with XML and content
+checks.
 
 ## Releases
 

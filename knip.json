@@ -1,5 +1,5 @@
 {
   "$schema": "./node_modules/knip/schema.json",
   "ignoreBinaries": ["xmllint"],
-  "ignoreDependencies": ["@action-validator/cli", "@commitlint/cli", "renovate"]
+  "ignoreDependencies": ["@action-validator/cli", "@commitlint/cli"]
 }
