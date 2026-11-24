@@ -16,7 +16,6 @@ const svgFileName = z
 const MAX_CARD_ROWS = 256;
 
 // XML 1.0 character range.
-// oxlint-disable-next-line no-control-regex -- this validates XML's allowed character ranges.
 export const XML_TEXT_PATTERN =
   /^[\t\n\r\u0020-\uD7FF\uE000-\uFFFD\u{10000}-\u{10FFFF}]*$/u;
 

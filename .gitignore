@@ -2,7 +2,6 @@
 Thumbs.db
 node_modules/
 out/
-coverage/
 .vscode/
 .idea/
 *.iml
@@ -11,4 +10,3 @@ coverage/
 .env*
 !.env.example
 !.env.example.*
-*.tsbuildinfo

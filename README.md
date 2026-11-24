@@ -185,26 +185,24 @@ Requirements:
 brew install TheZoraiz/ascii-image-converter/ascii-image-converter
 bun ci
 CONFIG="$(cat example-config.yml)" GITHUB_TOKEN="$(gh auth token)" bun generate
-bun test
 bun check:all
-bun check:fix
 ```
 
 `bun check:all` runs formatting, linting, action, hook, workflow, TypeScript, and unused dependency
 checks, tests, a production dependency audit, and a complete example render with XML and content
-checks.
+checks. Use `bun check:fix` to apply supported fixes before the full check.
 
 ## Releases
 
 ```bash
 bun release:patch
-bun release:minor
-bun release:major
 ```
 
-Release It! runs the full check, updates `package.json`, creates the conventional release commit and
-annotated `vX.Y.Z` tag, and pushes both. Run from a clean `main` checkout tracking `origin/main`,
-with Node.js satisfying
+Use `bun release:minor` or `bun release:major` instead for a larger version change.
+
+Release It! updates `package.json` and creates the release commit after the pre-commit checks pass.
+It then creates the annotated `vX.Y.Z` tag and pushes both. Run from a clean `main` checkout
+tracking `origin/main`, with Node.js satisfying
 [Release It!'s requirements](https://github.com/release-it/release-it/blob/main/package.json).
 
 CI creates a draft GitHub release with generated notes. Enable **Publish this Action to the GitHub
